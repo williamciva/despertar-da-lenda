@@ -4,36 +4,56 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator playerAnimator;
+    // public Animator running;
+    private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb;
     float input_x = 0;
-    float input_y = 0;
     public float speed = 2.5f;
+    public float jumpForce = 2.5f;
     bool isWalking = false;
+    bool isComingBack = false;
+    bool isJumping = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         isWalking = false;
+        isComingBack = false;
+        isJumping = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         input_x = Input.GetAxisRaw("Horizontal");
-        input_y = Input.GetAxisRaw("Vertical");
-        isWalking = (input_x != 0 || input_y != 0);
+        isJumping = Input.GetButtonDown("Jump") || Input.GetAxisRaw("Vertical") > 0;
+        isWalking = (input_x != 0);
+        isComingBack = (input_x < 0);
 
         if (isWalking)
         {
-            var move = new Vector3(input_x, input_y, 0).normalized;
-            transform.position += move * speed * Time.deltaTime;
-            playerAnimator.SetFloat("input_x", input_x);
-            playerAnimator.SetFloat("input_y", input_y);
+            rb.velocity =  new Vector2(input_x * speed, rb.velocity.y);
+            // running.SetFloat("input_x", input_x);
+
+            if ((isComingBack && !spriteRenderer.flipX) || (!isComingBack && spriteRenderer.flipX))
+            {
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
         }
 
-        playerAnimator.SetBool("isWalking", isWalking);
+        if (isJumping) { 
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
 
-        if (Input.GetButtonDown("Fire1"))
-            playerAnimator.SetTrigger("attack");
+        // running.SetBool("isWalkingForward", isWalkingForward);
+        // running.SetBool("isWalkingBack", isWalkingBack);
+        // running.SetBool("isJumping", isJumping);
+
+        // if (Input.GetButtonDown("Fire1"))
+        // {
+        //     running.SetTrigger("attack");
+        // }
     }
 }
