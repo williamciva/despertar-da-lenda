@@ -5,33 +5,27 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Animator playerAnimator;
+    private SpriteRenderer spriteRenderer;
     public Rigidbody2D rb;
     public float jumpForce = 5f;
     float input_x = 0;
     public float speed = 2.5f;
-    bool isWalking = false;
+    bool isMoving = false;
+    bool isBackward = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        isWalking = false;
+        isMoving = false;
+        isBackward = false;
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        input_x = Input.GetAxisRaw("Horizontal");
-        isWalking = (input_x != 0);
-
-        if (isWalking)
-        {
-            var move = new Vector3(input_x, 0, 0).normalized;
-            transform.position += move * speed * Time.deltaTime;
-            playerAnimator.SetFloat("input_x", input_x);
-        }
-
-        playerAnimator.SetBool("isWalking", isWalking);
+        PlayerMoviment();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -46,5 +40,25 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             playerAnimator.SetTrigger("jump");
         }
+    }
+
+    void PlayerMoviment()
+    {
+        input_x = Input.GetAxisRaw("Horizontal");
+        isMoving = input_x != 0;
+        isBackward = (input_x < 0);
+
+        if (isMoving)
+        {
+            rb.velocity = new Vector2(input_x * speed, rb.velocity.y);
+
+            if ((isBackward && !spriteRenderer.flipX) || (!isBackward && spriteRenderer.flipX))
+            {
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
+
+        }
+
+        playerAnimator.SetBool("isWalking", isMoving);
     }
 }
