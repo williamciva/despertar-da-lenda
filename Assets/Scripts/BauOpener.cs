@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BauOpener : MonoBehaviour
 {
-    public AnimationClip animacaoBau;
 
     private Animator animator;
 
@@ -22,5 +21,6 @@ public class BauOpener : MonoBehaviour
     private void AbrirBau()
     {
         animator.SetTrigger("Abrir");
+        GameObject.FindWithTag("Player").GetComponent<PlayerController>().haveKey = true;
     }
 }
