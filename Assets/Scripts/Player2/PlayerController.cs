@@ -27,20 +27,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMoviment();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-
+        Jump();
     }
 
     void Jump()
     {
-        if (Mathf.Abs(rb.velocity.y) < 0.01f)
+        if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            playerAnimator.SetTrigger("jump");
+            if (Mathf.Abs(rb.velocity.y) < 0.01f)
+            {
+                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                playerAnimator.SetTrigger("jump");
+            }
         }
     }
 
@@ -79,32 +77,9 @@ public class PlayerController : MonoBehaviour
         polygonCollider.SetPath(0, points);
     }
 
-    // private void OnColliderInPlataform()
-    // {
-    //     // Configurar parâmetros do Raycast
-    //     Vector2 raycastOrigin = rb.position; // posição do personagem
-    //     float raycastDistance = 5f; // distância do raio
-    //     Vector2 raycastDirection = Vector2.down; // direção do raio (para baixo)
-    //     TilemapCollider2D tilemapCollider2D = GameObject
-    //         .FindWithTag("Plataform")
-    //         .GetComponent<TilemapCollider2D>();
-
-    //     // Realizar o Raycast
-    //     RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, raycastDirection, raycastDistance);
-
-    //     // Verificar se ocorreu colisão com a parte superior da plataforma
-    //     if (hit.collider != null && hit.collider.CompareTag("Plataform") )
-    //     {
-    //         Physics2D.IgnoreCollision(polygonCollider, tilemapCollider2D, false);
-    //         return;
-    //     }
-
-    //     Physics2D.IgnoreCollision(polygonCollider, tilemapCollider2D, true);
-    // }
-
     // private void OnCollisionEnter2D(Collision2D collision)
     // {
-    //     TilemapCollider2D tilemapCollider2D = GameObject
+    //     TilemapCollider2D plataform = GameObject
     //         .FindWithTag("Plataform")
     //         .GetComponent<TilemapCollider2D>();
 
@@ -113,25 +88,17 @@ public class PlayerController : MonoBehaviour
 
     //     foreach (var colision in collisions)
     //     {
-    //         if (colision.collider == tilemapCollider2D)
+    //         if (colision.collider == plataform)
     //         {
-    //             if (colision.collider.bounds.max.y > rb.position.y && rb.velocity.y >= 0)
+    //             if (colision.relativeVelocity.y > colision.relativeVelocity.x && rb.velocity.x != 0)
     //             {
-    //                 // Ignore temporariamente a colisão com a plataforma
-    //                 Physics2D.IgnoreCollision(polygonCollider, collision.collider, false);
+    //                 rb.sharedMaterial.friction = 0;
     //                 break;
     //             }
-    //             Physics2D.IgnoreCollision(polygonCollider, collision.collider, true);
-    //             rb.AddForce(new Vector2(0f, rb.velocity.y), ForceMode2D.Impulse);
-    //         }
-
-    //         if (
-    //             colision.collider
-    //             == GameObject.FindWithTag("Ground").GetComponent<TilemapCollider2D>()
-    //         )
-    //         {
-    //             Physics2D.IgnoreCollision(polygonCollider, tilemapCollider2D, false);
-    //             break;
+    //             else if (colision.relativeVelocity.y < colision.relativeVelocity.x)
+    //             {
+    //                 rb.sharedMaterial.friction = 10;
+    //             }
     //         }
     //     }
     // }
