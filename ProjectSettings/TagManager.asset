@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Plataform
-  - Ground
+  - Spike
+  - Saw
   layers:
   - Default
   - TransparentFX
@@ -13,11 +13,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bricks
+  - Fan
+  - Ground
+  - GameOver
+  - Enemy
   - 
   - 
   - 
