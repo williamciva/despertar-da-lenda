@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 2.5f;
     bool isMoving = false;
     bool isBackward = false;
+    public bool haveKey = false;
 
     // Start is called before the first frame update
     void Start()
