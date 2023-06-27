@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 226417250}
   - component: {fileID: 226417252}
   - component: {fileID: 226417251}
+  - component: {fileID: 226417253}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226417249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.282, y: -2.029, z: 0}
+  m_LocalPosition: {x: 35.46, y: 18.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -229,6 +230,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &226417253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226417249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c50dae1cc0e00d4cb029487392e2642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animacaoBau: {fileID: 0}
 --- !u!1 &413637875
 GameObject:
   m_ObjectHideFlags: 0
@@ -13263,7 +13277,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 52.199707
+  m_Mass: 53.199707
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -13626,7 +13640,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 34, y: 14, z: 0}
+  - first: {x: 33, y: 14, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 19
@@ -13646,7 +13660,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 34, y: 15, z: 0}
+  - first: {x: 33, y: 15, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 13
@@ -13676,7 +13690,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 34, y: 16, z: 0}
+  - first: {x: 33, y: 16, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 23
@@ -13726,11 +13740,21 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 34, y: 17, z: 0}
+  - first: {x: 33, y: 17, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 25
       m_TileSpriteIndex: 21
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 34, y: 17, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 17
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -13962,7 +13986,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 34e823f164a433545a6198aa332c5e3f, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 8c0583c4997af29459616893182f1c61, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 62f433aa5b534d948847e6cc1409e14b, type: 2}
@@ -14007,7 +14031,7 @@ Tilemap:
     m_Data: {fileID: -1965696634, guid: 157cbc340d2b7e64ab85168e80e95550, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 8508786041144346114, guid: 157cbc340d2b7e64ab85168e80e95550, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: -8050565165637369036, guid: 157cbc340d2b7e64ab85168e80e95550, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 6831165330611300861, guid: 157cbc340d2b7e64ab85168e80e95550, type: 3}
@@ -14042,7 +14066,7 @@ Tilemap:
   - m_RefCount: 12
     m_Data: {fileID: 3819963029724104715, guid: 157cbc340d2b7e64ab85168e80e95550, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 58
+  - m_RefCount: 59
     m_Data:
       e00: 1
       e01: 0
@@ -14061,7 +14085,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 58
+  - m_RefCount: 59
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -14101,7 +14125,6 @@ GameObject:
   - component: {fileID: 894356542}
   - component: {fileID: 894356543}
   - component: {fileID: 894356544}
-  - component: {fileID: 894356545}
   m_Layer: 0
   m_Name: Human
   m_TagString: Player
@@ -14328,20 +14351,6 @@ PolygonCollider2D:
       - {x: -0.10232508, y: -0.24089667}
       - {x: -0.10237223, y: -0.2633521}
       - {x: -0.08272697, y: -0.28381386}
---- !u!114 &894356545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 894356538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c50dae1cc0e00d4cb029487392e2642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bau: {fileID: 226417249}
-  animacaoBau: {fileID: 7400000, guid: d1cea562ca661ce40add0dd341ad475a, type: 2}
 --- !u!1 &981460367
 GameObject:
   m_ObjectHideFlags: 0
