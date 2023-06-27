@@ -5,10 +5,12 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     private Animator animator;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start() { 
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -18,6 +20,7 @@ public class DoorScript : MonoBehaviour
         {
             if (GameObject.FindWithTag("Player").GetComponent<PlayerController>().haveKey) { 
                 animator.SetTrigger("Open");
+                audioSource.Play();
             }
         }
     }
