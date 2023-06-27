@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226417249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.29, y: -1.92, z: 0}
+  m_LocalPosition: {x: -6.282, y: -2.029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -166,7 +166,7 @@ Animator:
   m_GameObject: {fileID: 226417249}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f256d94ad78633f4da3695977645607e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 54ed78973a0d6c44f87bdc3524c4e2c9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14101,6 +14101,7 @@ GameObject:
   - component: {fileID: 894356542}
   - component: {fileID: 894356543}
   - component: {fileID: 894356544}
+  - component: {fileID: 894356545}
   m_Layer: 0
   m_Name: Human
   m_TagString: Player
@@ -14327,6 +14328,20 @@ PolygonCollider2D:
       - {x: -0.10232508, y: -0.24089667}
       - {x: -0.10237223, y: -0.2633521}
       - {x: -0.08272697, y: -0.28381386}
+--- !u!114 &894356545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894356538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c50dae1cc0e00d4cb029487392e2642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bau: {fileID: 226417249}
+  animacaoBau: {fileID: 7400000, guid: d1cea562ca661ce40add0dd341ad475a, type: 2}
 --- !u!1 &981460367
 GameObject:
   m_ObjectHideFlags: 0
