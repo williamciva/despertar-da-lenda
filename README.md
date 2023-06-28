@@ -10,5 +10,5 @@ Despertar da Lenda é um jogo de plataforma em 2D, desenvolvido como um projeto 
 - William Civa
 
 
-### Bussiness do game:
+### Business do game:
 https://1drv.ms/p/s!AgfLK8_qCnWq3We0slnz-zSKk0TC?e=HHy7VC
